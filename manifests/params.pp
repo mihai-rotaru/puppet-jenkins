@@ -10,6 +10,5 @@ class jenkins::params {
   $configure_firewall = true
   $install_java       = true
   $swarm_version      = '1.9'
+  $plugin_parent_dir  = '/var/lib/jenkins'
 }
-
-

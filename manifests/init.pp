@@ -74,6 +74,7 @@ class jenkins(
   $service_ensure     = $jenkins::params::service_ensure,
   $config_hash        = undef,
   $plugin_hash        = undef,
+  $plugin_parent_dir  = $jenkins::params::plugin_parent_dir,
   $configure_firewall = $jenkins::params::configure_firewall,
   $install_java       = $jenkins::params::install_java,
   $proxy_host         = undef,
@@ -108,6 +109,7 @@ class jenkins(
 
   class { 'jenkins::plugins':
     plugin_hash => $plugin_hash,
+    plugin_parent_dir => $plugin_parent_dir,
   }
 
   if $proxy_host {
