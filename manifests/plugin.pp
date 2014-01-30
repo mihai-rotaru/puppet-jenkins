@@ -47,6 +47,7 @@ define jenkins::plugin(
     user {
       'jenkins' :
         ensure  => present,
+        home    => $plugin_parent_dir,
         require => Package['jenkins'];
     }
   }
@@ -64,16 +65,16 @@ define jenkins::plugin(
         command    => "rm -rf ${name} ${name}.* && wget --no-check-certificate ${base_url}${plugin}",
         cwd        => $plugin_dir,
         require    => [File[$plugin_dir], Package['wget']],
-        path       => ['/usr/bin', '/usr/sbin', '/bin'],
+        path       => ['/usr/bin', '/usr/sbin', '/bin'];
     }
-  }
 
-  file {
-    "${plugin_dir}/${plugin}" :
-      require => Exec["download-${name}"],
-      owner   => 'jenkins',
-      mode    => '0644',
-      notify  => Service['jenkins'];
+    file {
+      "${plugin_dir}/${plugin}" :
+        require => Exec["download-${name}"],
+        owner   => 'jenkins',
+        mode    => '0644',
+        notify  => Service['jenkins'];
+    }
   }
 
 }

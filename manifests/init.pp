@@ -3,7 +3,7 @@
 # version = 'installed' (Default)
 #   Will NOT update jenkins to the most recent version.
 # version = 'latest'
-#    Will automatically update the version of jenkins to the current version available via your pacakge manager.
+#    Will automatically update the version of jenkins to the current version available via your package manager.
 #
 # lts = false  (Default)
 #   Use the most up to date version of jenkins
@@ -58,11 +58,11 @@
 #
 # configure_firewall = true (default)
 #   For folks that want to manage the puppetlabs firewall module.
-#    -  If it's not present, it will not be installed and nothing happens
+#    - If it's not present, it will not be installed and nothing happens
 #    - This default could change in the future.
 #
 #
-# installl_java = true (Default)
+# install_java = true (default)
 #   - use puppetlabs-java module to install the correct version of a JDK.
 #   - Jenkins requires a JRE
 #
